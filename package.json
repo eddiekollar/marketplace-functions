@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.82.0",
+    "csv": "^1.1.1",
+    "fs": "^0.0.1-security",
+    "lodash": "^4.17.4",
+    "mailgun-js": "^0.11.2",
+    "moment": "^2.18.1",
+    "mongodb": "^2.2.30"
+  }
+}

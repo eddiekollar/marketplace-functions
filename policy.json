@@ -1,0 +1,84 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "logs:CreateLogStream"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-2:*:log-group:/aws/lambda/market-services-dev-parseBilling:*",
+                "arn:aws:logs:us-east-2:*:log-group:/aws/lambda/market-services-dev-deployFunction:*",
+                "arn:aws:logs:us-east-2:*:log-group:/aws/lambda/market-services-dev-sendEmail:*"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-2:*:log-group:/aws/lambda/market-services-dev-parseBilling:*:*",
+                "arn:aws:logs:us-east-2:*:log-group:/aws/lambda/market-services-dev-deployFunction:*:*",
+                "arn:aws:logs:us-east-2:*:log-group:/aws/lambda/market-services-dev-sendEmail:*:*"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "iam:PassRole",
+                "iam:GetRole"
+            ],
+            "Resource": "arn:aws:iam:::role/*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "iam:PassRole",
+                "iam:GetRole"
+            ],
+            "Resource": "arn:aws:sts:::assumed-role/*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:DescribeLogStreams"
+            ],
+            "Resource": "arn:aws:logs:*:*:*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject",
+                "s3:PutObjectTagging",
+                "s3:GetObjectTagging"
+            ],
+            "Resource": "arn:aws:s3:::*/*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "lambda:CreateFunction",
+                "lambda:DeleteFunction",
+                "lambda:InvokeFunction",
+                "lambda:TagResource",
+                "lambda:UnTagResource",
+                "iam:GetRole",
+                "iam:PassRole"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        }
+    ]
+}
